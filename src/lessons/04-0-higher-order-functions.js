@@ -16,113 +16,51 @@ const bae = {};
 // return just the last element.
 bae.last = function (array, n) {
   // Your code here
-  if (n === undefined) {
-    // Return the last element
-    return array[array.length - 1];
-  } else if (n > 0) {
-    // Return the last n elements
-    return array.slice(-n);
-  } else {
-    // Return an empty array if n is 0 or negative
-    return [];
-  }
 };
 
 // Return an array of the first n elements of an array. If n is undefined,
 // return just the first element.
 bae.first = function (array, n) {
-  return n === undefined ? array[0] : array.slice(0, n);
+  // Your code here
 };
 
 // Call iterator(value, key, collection) for each element of collection
-// collection is an array or object
+// a collection is an array or object
 bae.each = function (collection, iterator) {
-  if (Array.isArray(collection)) {
-    for (var i = 0, len = collection.length; i < len; i++) {
-      iterator(collection[i], i, collection);
-    }
-  } else {
-    for (var i in collection) {
-      iterator(collection[i], i, collection);
-    }
-  }
+  // Your code here
 };
 
 // Returns the index at which value can be found in the array, or -1 if value
 // is not present in the array.
 // use the bae.each function you wrote above instead of a for loop
 bae.indexOf = function (array, target) {
-  var result = -1;
-
-  bae.each(array, function (item, index) {
-    if (item === target && result === -1) {
-      result = index;
-    }
-  });
-
-  return result;
+  // Your code here
 };
 
 // Return all elements of an array that pass a truth test.
 // Collection is an array of object to filter
 // test is a function that returns true or false for each item
 bae.filter = function (collection, test) {
-  var filtered = [];
-  bae.each(collection, function (item) {
-    if (test(item)) {
-      filtered.push(item);
-    }
-  });
-  return filtered;
+  // Your code here
 };
 
 // Return all elements of an array that don't pass a truth test.
 bae.reject = function (collection, test) {
   // TIP: see if you can re-use bae.filter() here, without simply
   // copying code in and modifying it
-  return bae.filter(collection, function (item) {
-    return !test(item);
-  });
 };
 
 // Produce a duplicate-free version of the array.
 bae.uniq = function (array) {
-  var uniqArray = [];
-  bae.each(array, function (item) {
-    if (bae.indexOf(uniqArray, item) === -1) {
-      uniqArray.push(item);
-    }
-  });
-  return uniqArray;
+  // Your code here
 };
 
 // Return the results of applying an iterator to each element.
+// map() is a useful primitive iteration function that works a lot
+// like each(), but in addition to running the operation on all
+// the members, it also maintains an array of results.
 bae.map = function (collection, iterator) {
-  // map() is a useful primitive iteration function that works a lot
-  // like each(), but in addition to running the operation on all
-  // the members, it also maintains an array of results.
-  var mapped = [];
-  bae.each(collection, function (item) {
-    const result = iterator(item);
-    mapped.push(result);
-  });
-  return mapped;
-};
-
-// Determine if the array or object contains a given value (using `===`).
-bae.contains = function (collection, target) {
-  // TIP: Many iteration problems can be most easily expressed in
-  // terms of reduce().
-  return bae.reduce(
-    collection,
-    function (wasFound, item) {
-      if (wasFound) {
-        return true;
-      }
-      return item === target;
-    },
-    false
-  );
+  // Your code here
 };
 
 // Reduces an array or object to a single value by repetitively calling
@@ -140,18 +78,12 @@ bae.contains = function (collection, target) {
 //   var sum = bae.reduce(numbers, function(total, number){
 //     return total + number;
 //   }, 0); // should be 6
-//
-//   var identity = bae.reduce([5], function(total, number){
-//     return total + number * number;
-//   }); // should be 5, regardless of the iterator function passed in
-//          No accumulator is given so the first element is used.
 bae.reduce = function (collection, iterator, accumulator) {
-  bae.each(collection, function (item) {
-    if (accumulator === undefined) {
-      accumulator = item;
-    } else {
-      accumulator = iterator(accumulator, item);
-    }
-  });
-  return accumulator;
+  // Your code here
+};
+
+// Determine if the array or object contains a given value (using `===`).
+bae.contains = function (collection, target) {
+  // TIP: Many iteration problems can be most easily expressed in
+  // terms of reduce().
 };
